@@ -165,4 +165,22 @@ describe("Custom options", () => {
                 expect(cache).to.equal("default");
             });
     });
+
+    it("Should set options when using clone method", () => {
+        const webHeaders = {};
+        webHeaders[headerName] = "myvalue";
+        webHeaders["X-RequestDigest"] = "1234";
+
+        return pnp.sp.configure({
+            headers: webHeaders,
+        }).utility.sendEmail({
+            To: ["some@mail.com"],
+            Body: "pnpjs",
+            Subject: "test mail",
+        })
+            .then(() => {
+                const header = mockFetch.options.headers.get(headerName);
+                expect(header).to.equal("myvalue");
+            });
+    });
 });

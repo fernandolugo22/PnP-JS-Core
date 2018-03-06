@@ -81,24 +81,48 @@ export class Items extends SharePointQueryableCollection {
 
         Logger.write("Calling items.getAll should be done sparingly. Ensure this is the correct choice. If you are unsure, it is not.", LogLevel.Warning);
 
-        // this will eventually hold the items we return
-        const itemsCollector: any[] = [];
+        // this will be used for the actual query
+        // and we set no metadata here to try and reduce traffic
+        const items = new Items(this, "").top(requestSize).configure({
+            headers: {
+                "Accept": "application/json;odata=nometadata",
+            },
+        });
 
-        // action that will gather up our results recursively
-        function gatherer (last: Promise<PagedItemCollection<any>>): any {
-            return last.then((pageResult: PagedItemCollection<any>) => {
+        // let's copy over the odata query params that can be applied
+        // $top - allow setting the page size this way (override what we did above)
+        // $select - allow picking the return fields (good behavior)
+        // $filter - allow setting a filter, though this may fail for large lists
+        this.query.getKeys()
+            .filter(k => /^\$select$|^\$filter$|^\$top$|^\$expand$/.test(k.toLowerCase()))
+            .reduce((i, k) => {
+                i.query.add(k, this.query.get(k));
+                return i;
+            }, items);
 
-                [].push.apply(itemsCollector, pageResult.results);
+        // give back the promise
+        return new Promise((resolve, reject) => {
 
-                if (pageResult.hasNext) {
-                    return gatherer(pageResult.getNext());
+            // this will eventually hold the items we return
+            const itemsCollector: any[] = [];
+
+            // action that will gather up our results recursively
+            const gatherer = (last: PagedItemCollection<any>) => {
+
+                // collect that set of results
+                [].push.apply(itemsCollector, last.results);
+
+                // if we have more, repeat - otherwise resolve with the collected items
+                if (last.hasNext) {
+                    last.getNext().then(gatherer).catch(reject);
+                } else {
+                    resolve(itemsCollector);
                 }
+            };
 
-                return itemsCollector;
-            });
-        }
-
-        return gatherer(this.top(requestSize).getPaged());
+            // start the cycle
+            items.getPaged().then(gatherer).catch(reject);
+        });
     }
 
     /**

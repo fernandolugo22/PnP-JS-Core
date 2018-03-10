@@ -1,9 +1,8 @@
 import { SharePointQueryable, SharePointQueryableInstance, SharePointQueryableCollection } from "./sharepointqueryable";
-import { HashTagCollection, UserProfile } from "./types";
+import { ClientPeoplePickerQueryParameters, HashTagCollection, PeoplePickerEntity, UserProfile } from "./types";
 import { readBlobAsArrayBuffer } from "../utils/files";
 import { Util } from "../utils/util";
 import { ODataValue } from "../odata/parsers";
-import { ClientPeoplePickerQueryParameters, PeoplePickerEntity } from "./types";
 
 export class UserProfileQuery extends SharePointQueryableInstance {
 

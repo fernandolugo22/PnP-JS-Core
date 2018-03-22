@@ -253,7 +253,7 @@ export class ClientSidePage extends File {
      * 
      * @param escapedString 
      */
-    public static escapedStringToJson<T = any>(escapedString: string): T {
+    public static escapedStringToJson<T>(escapedString: string): T {
 
         return JSON.parse(escapedString
             .replace(/&quot;/g, `"`)
@@ -695,7 +695,7 @@ export class ClientSideText extends CanvasControl {
 
         super.fromHtml(html);
 
-        const match = /<div[^>]*data-sp-rte[^>]*>(.*?)<\/div>/i.exec(html);
+        const match = /<div[^>]*data-sp-rte[^>]*>(.*?)<\/div>$/i.exec(html);
 
         this.text = match.length > 1 ? match[1] : "";
     }
@@ -726,12 +726,12 @@ export class ClientSideWebpart extends CanvasControl {
         this.propertieJson = this.parseJsonProperties(manifest.preconfiguredEntries[0].properties);
     }
 
-    public setProperties<T = any>(properties: T): this {
+    public setProperties<T>(properties: T): this {
         this.propertieJson = properties;
         return this;
     }
 
-    public getProperties<T = any>(): T {
+    public getProperties<T>(): T {
         return <T>this.propertieJson;
     }
 

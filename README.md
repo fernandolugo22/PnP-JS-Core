@@ -12,7 +12,7 @@ Please use [http://aka.ms/sppnp](http://aka.ms/sppnp) for getting latest informa
 
 **What**
 
-We have created [a new repo](https://github.com/pnp/pnp) that will continue the work started with sp-pnp-js and encourage you to begin migrating your existing projects, and for new projects using these libraries. Please review the [transtion guide](https://pnp.github.io/pnp/transition-guide.html) to help with your migration.
+We have created [a new repo](https://github.com/pnp/pnpjs) that will continue the work started with sp-pnp-js and encourage you to begin migrating your existing projects, and for new projects using these libraries. Please review the [transtion guide](https://pnp.github.io/pnpjs/transition-guide.html) to help with your migration.
 
 **Why**
 
@@ -22,10 +22,9 @@ This move does a few things that will benefit everyone long term. Breaking up th
 
 Between now and July 2018 we will maintain both libraries in parallel. Meaning code added to one will in most cases be put into the other. There will be some exceptions where features are only added to the new libraries, but we will make every effort to minimize differences during this time.
 
-After July 2018 we will only update, maintain, and release the [@pnp scoped libraries](https://github.com/pnp/pnp). sp-pnp-js will remain on [npm](https://www.npmjs.com/package/sp-pnp-js) so you can continue to install it for existing projects, and the repo will remain as a reference. **No existing projects will break due to this move.**
+After July 2018 we will only update, maintain, and release the [@pnp scoped libraries](https://github.com/pnp/pnpjs). sp-pnp-js will remain on [npm](https://www.npmjs.com/package/sp-pnp-js) so you can continue to install it for existing projects, and the repo will remain as a reference. **No existing projects will break due to this move.**
 
 We understand this is a disruption, but by giving many months notice we hope it will provide sufficient time to adjust and migrate any existing projects. As always we welcome feedback and questions.
-
 
 ### Get Started
 
@@ -33,13 +32,17 @@ We understand this is a disruption, but by giving many months notice we hope it 
 
 Add the npm package to your project
 
-    npm install sp-pnp-js --save
+```bash
+npm install sp-pnp-js --save
+```
 
 **Bower**
 
 Add the package from bower
 
-    bower install sp-pnp-js
+```bash
+bower install sp-pnp-js
+```
 
 ### Wiki
 
@@ -60,16 +63,19 @@ Checkout a [SharePoint hosted Add-In containing samples](https://github.com/Offi
 We have an active [Gitter](https://gitter.im/OfficeDev/PnP-JS-Core) community dedicated to this library, please join the conversation to ask questions. If you find an issue with the library, please [report it](https://github.com/OfficeDev/PnP-JS-Core/issues).
 
 ### Authors
+
 This project's contributors include Microsoft and [community contributors](AUTHORS). Work is done as as open source community project.
 
 ![pnp in action](http://i.imgur.com/TGT3Xs2.gif)
 
 ### Code of Conduct
+
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ### "Sharing is Caring"
 
 ### Disclaimer
+
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
 ![](https://telemetry.sharepointpnp.com/pnp-js-core/readme)

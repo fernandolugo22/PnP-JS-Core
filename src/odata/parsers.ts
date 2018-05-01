@@ -14,43 +14,44 @@ export function ODataValue<T>(): ODataParser<T> {
     return new ODataValueParserImpl<T>();
 }
 
-export class ODataRawParserImpl implements ODataParser<any> {
-    public parse(r: Response): Promise<any> {
-        return r.json();
+export class ODataRawParserImpl extends ODataParserBase<any> {
+
+    protected parseImpl(r: Response, resolve: (value: any) => void): void {
+        r.json().then(resolve);
     }
 }
 
 export let ODataRaw = new ODataRawParserImpl();
 
-export class TextFileParser implements ODataParser<string> {
+export class TextFileParser extends ODataParserBase<string> {
 
-    public parse(r: Response): Promise<string> {
-        return r.text();
+    protected parseImpl(r: Response, resolve: (value: any) => void): void {
+        r.text().then(resolve);
     }
 }
 
-export class BlobFileParser implements ODataParser<Blob> {
+export class BlobFileParser extends ODataParserBase<Blob> {
 
-    public parse(r: Response): Promise<Blob> {
-        return r.blob();
+    protected parseImpl(r: Response, resolve: (value: any) => void): void {
+        r.blob().then(resolve);
     }
 }
 
-export class JSONFileParser implements ODataParser<any> {
+export class JSONFileParser extends ODataParserBase<any> {
 
-    public parse(r: Response): Promise<any> {
-        return r.json();
+    protected parseImpl(r: Response, resolve: (value: any) => void): void {
+        r.json().then(resolve);
     }
 }
 
-export class BufferFileParser implements ODataParser<ArrayBuffer> {
+export class BufferFileParser extends ODataParserBase<ArrayBuffer> {
 
-    public parse(r: any): Promise<ArrayBuffer> {
+    protected parseImpl(r: Response, resolve: (value: any) => void): void {
 
         if (Util.isFunction(r.arrayBuffer)) {
-            return r.arrayBuffer();
+            r.arrayBuffer().then(resolve);
         }
 
-        return r.buffer();
+        (<any>r).buffer().then(resolve);
     }
 }

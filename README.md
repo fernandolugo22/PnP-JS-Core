@@ -12,7 +12,7 @@ Please use [http://aka.ms/sppnp](http://aka.ms/sppnp) for getting latest informa
 
 **What**
 
-We have created [a new repo](https://github.com/pnp/pnpjs) that will continue the work started with sp-pnp-js and encourage you to begin migrating your existing projects, and for new projects using these libraries. Please review the [transtion guide](https://pnp.github.io/pnpjs/transition-guide.html) to help with your migration.
+We have created [a new repo](https://github.com/pnp/pnpjs) that will continue the work started with sp-pnp-js and encourage you to begin migrating your existing projects, and for new projects using these libraries. Please review the [transition guide](https://pnp.github.io/pnpjs/transition-guide.html) to help with your migration.
 
 **Why**
 

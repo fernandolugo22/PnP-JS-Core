@@ -358,7 +358,7 @@ export interface XmlSchemaFieldCreationInformation {
     SchemaXml: string;
 }
 
-export interface FieldCreationProperties extends TypedHash<string | number | boolean> {
+export interface FieldCreationProperties extends TypedHash<string | number | boolean | undefined > {
     DefaultFormula?: string;
     Description?: string;
     EnforceUniqueValues?: boolean;

@@ -14,6 +14,8 @@ In July of 2018 we have deprecated this library in favor of the [new libraries](
 
 This move does a few things that will benefit everyone long term. Breaking up the single package into multiple gives developers the ability to control which pieces are brought into their projects. As well it gives us the oppotunity to grow without a single .js file growing. It also serves as an opportunity to update our tooling, packaging, and releases to better align with evolving industry norms. Finally, by grouping things within the @pnp scope it is easy to identify packages published by the SharePoint Patterns and Practices team.
 
+------
+
 ### Wiki
 
 Please see [the wiki](https://github.com/SharePoint/PnP-JS-Core/wiki) for detailed guides on getting started both using and contributing to the library. The **[Developer Guide](https://github.com/SharePoint/PnP-JS-Core/wiki/Developer-Guide)** is a great place to get started.

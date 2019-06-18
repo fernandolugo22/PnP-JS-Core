@@ -10,7 +10,7 @@ Please use [http://aka.ms/sppnp](http://aka.ms/sppnp) for getting latest informa
 
 **This Library is no longer actively maintained**
 
-In July of 2018 we have deprecated this library in favor of the [new libraries](https://github.com/pnp/pnpjs). Please review the [transition guide](https://pnp.github.io/pnpjs/transition-guide.html) to help with your migration.
+In July of 2018 we have deprecated this library in favor of the [new libraries](https://github.com/pnp/pnpjs). Please review the [transition guide](https://pnp.github.io/pnpjs/documentation/transition-guide/) to help with your migration.
 
 This move does a few things that will benefit everyone long term. Breaking up the single package into multiple gives developers the ability to control which pieces are brought into their projects. As well it gives us the oppotunity to grow without a single .js file growing. It also serves as an opportunity to update our tooling, packaging, and releases to better align with evolving industry norms. Finally, by grouping things within the @pnp scope it is easy to identify packages published by the SharePoint Patterns and Practices team.
 

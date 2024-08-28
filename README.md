@@ -1,4 +1,4 @@
-![SharePoint Patterns and Practices](https://devofficecdn.azureedge.net/media/Default/PnP/sppnp.png)
+Code moved to https://github.com/pnp/pnpjs. **This repository is archived.**
 
 # JavaScript Core Library
 
